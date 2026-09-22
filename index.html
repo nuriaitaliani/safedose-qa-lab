@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Entorno educativo para practicar QA basado en un flujo ficticio de seguridad de medicación.">
+  <title>SafeDose QA Lab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3441'/%3E%3Cpath d='M32 13v38M13 32h38' stroke='%2349d6b5' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <a class="brand" href="#main-content" aria-label="SafeDose QA Lab, inicio">
+      <span class="brand-mark" aria-hidden="true">+</span>
+      <span>SafeDose <strong>QA Lab</strong></span>
+    </a>
+    <p class="environment"><span aria-hidden="true"></span> Entorno educativo · datos ficticios</p>
+  </header>
+
+  <main id="main-content">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Revisión previa a administración</p>
+        <h1 id="page-title">Registro seguro de medicación</h1>
+        <p>Comprueba que los datos esenciales están completos antes de añadir un registro a la cola de revisión.</p>
+      </div>
+      <div class="status-card" aria-label="Estado del turno">
+        <p>Turno de prueba</p>
+        <strong>3 revisiones abiertas</strong>
+        <span>Última sincronización: 10:42</span>
+      </div>
+    </section>
+
+    <section class="patient-banner" aria-labelledby="patient-title">
+      <div>
+        <p class="eyebrow">Paciente ficticio</p>
+        <h2 id="patient-title">Lucía Martín · PT-1042</h2>
+      </div>
+      <dl>
+        <div><dt>Fecha de nacimiento</dt><dd>14/08/1987</dd></div>
+        <div><dt>Alergias registradas</dt><dd class="risk-text">Penicilinas</dd></div>
+        <div><dt>Área</dt><dd>Observación 2</dd></div>
+      </dl>
+    </section>
+
+    <div class="workspace-grid">
+      <section class="panel form-panel" aria-labelledby="form-title">
+        <div class="panel-heading">
+          <div>
+            <p class="step">Paso 1 de 2</p>
+            <h2 id="form-title">Añadir a revisión</h2>
+          </div>
+          <p><span aria-hidden="true">*</span> Campos obligatorios</p>
+        </div>
+
+        <div id="error-summary" class="error-summary" hidden tabindex="-1">
+          <h3>Revisa los datos marcados</h3>
+          <ul id="error-list"></ul>
+        </div>
+
+        <form id="medication-form" novalidate>
+          <div class="field full-width">
+            <label for="medication">Medicamento <span aria-hidden="true">*</span></label>
+            <input id="medication" name="medication" type="text" autocomplete="off" required maxlength="60" placeholder="Ej.: Ceftriaxona">
+            <p class="field-hint">Usa el nombre registrado en la orden ficticia.</p>
+          </div>
+
+          <div class="field">
+            <label for="dose">Dosis <span aria-hidden="true">*</span></label>
+            <input id="dose" name="dose" type="number" required min="0.1" max="9999" step="0.1" inputmode="decimal" placeholder="0,0">
+          </div>
+
+          <div class="field">
+            <label for="unit">Unidad <span aria-hidden="true">*</span></label>
+            <select id="unit" name="unit" required>
+              <option value="">Selecciona</option>
+              <option value="mg">mg</option>
+              <option value="mL">mL</option>
+              <option value="g">g</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="route">Vía <span aria-hidden="true">*</span></label>
+            <select id="route" name="route" required>
+              <option value="">Selecciona</option>
+              <option>Oral</option>
+              <option>Intravenosa</option>
+              <option>Subcutánea</option>
+              <option>Tópica</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="frequency">Frecuencia <span aria-hidden="true">*</span></label>
+            <select id="frequency" name="frequency" required>
+              <option value="">Selecciona</option>
+              <option value="Cada 6 h">Cada 6 h</option>
+              <option value="Cada 8 h">Cada 8 h</option>
+              <option value="Cada 12 h">Cada 12 h</option>
+              <option value="Dosis única">Dosis única</option>
+            </select>
+          </div>
+
+          <fieldset class="field full-width allergy-check">
+            <legend>¿Se ha contrastado con las alergias registradas? <span aria-hidden="true">*</span></legend>
+            <label><input type="radio" name="allergyChecked" value="Sí"> Sí</label>
+            <label><input type="radio" name="allergyChecked" value="No"> No</label>
+          </fieldset>
+
+          <div class="field full-width">
+            <label for="notes">Observaciones</label>
+            <textarea id="notes" name="notes" rows="3" maxlength="280" placeholder="Añade únicamente información relevante para la revisión"></textarea>
+            <p class="character-count"><span id="note-count">0</span>/280</p>
+          </div>
+
+          <div class="form-actions full-width">
+            <button class="button primary" type="submit">Añadir a revisión</button>
+            <button class="button secondary" type="reset">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="panel safety-panel" aria-labelledby="safety-title">
+        <div class="panel-heading">
+          <div>
+            <p class="step">Paso 2 de 2</p>
+            <h2 id="safety-title">Puerta de seguridad</h2>
+          </div>
+        </div>
+        <p class="safety-intro">Un registro no está listo solo porque el formulario permita enviarlo.</p>
+        <ul class="gate-list">
+          <li><span class="gate-icon pass" aria-hidden="true">✓</span><span><strong>Identidad disponible</strong><small>ID y fecha visibles</small></span></li>
+          <li><span class="gate-icon warning" aria-hidden="true">!</span><span><strong>Alergia relevante</strong><small>Requiere contraste explícito</small></span></li>
+          <li><span class="gate-icon neutral" aria-hidden="true">?</span><span><strong>Dosis y unidad</strong><small>Pendiente de entrada</small></span></li>
+          <li><span class="gate-icon neutral" aria-hidden="true">?</span><span><strong>Duplicados</strong><small>Se comprobarán al enviar</small></span></li>
+        </ul>
+        <div class="safety-note">
+          <strong>Alcance del prototipo</strong>
+          <p>No calcula dosis, no diagnostica y no debe utilizarse con datos reales ni para decisiones clínicas.</p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="panel queue-panel" aria-labelledby="queue-title">
+      <div class="panel-heading queue-heading">
+        <div>
+          <p class="eyebrow">Cola ficticia</p>
+          <h2 id="queue-title">Registros pendientes</h2>
+        </div>
+        <p id="queue-count">2 registros</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Medicamentos pendientes de revisión para el paciente ficticio PT-1042</caption>
+          <thead>
+            <tr><th scope="col">Medicamento</th><th scope="col">Dosis</th><th scope="col">Vía</th><th scope="col">Frecuencia</th><th scope="col">Alergias</th><th scope="col">Estado</th></tr>
+          </thead>
+          <tbody id="queue-body">
+            <tr><th scope="row">Paracetamol</th><td>650 mg</td><td>Oral</td><td>Cada 8 h</td><td>Contrastadas</td><td><span class="tag pending">Pendiente</span></td></tr>
+            <tr><th scope="row">Enoxaparina</th><td>40 mg</td><td>Subcutánea</td><td>Cada 12 h</td><td>Contrastadas</td><td><span class="tag review">Revisión doble</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="audit-strip" aria-labelledby="audit-title">
+      <div><p class="eyebrow">Trazabilidad</p><h2 id="audit-title">Última actividad</h2></div>
+      <ol id="audit-log"><li><time datetime="2026-09-21T10:42">10:42</time> QA-DEMO abrió la revisión del paciente PT-1042.</li></ol>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden>Registro añadido a la cola.</div>
+
+  <footer>
+    <p>SafeDose QA Lab · Proyecto educativo de QA · Todos los datos son ficticios.</p>
+    <a href="README.md">Documentación del proyecto</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
