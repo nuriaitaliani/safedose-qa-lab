@@ -49,7 +49,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  if (isDuplicate(medication, dose, unit)) {
+  if (isDuplicate(medication, dose, unit, route, frequency)) {
     showErrors([{ field: "medication", message: "Ya existe un registro idéntico en la cola." }]);
     return;
   }
@@ -60,11 +60,17 @@ form.addEventListener("submit", (event) => {
   showToast();
 });
 
-function isDuplicate(medication, dose, unit) {
+function isDuplicate(medication, dose, unit, route, frequency) {
   return [...queueBody.rows].some((row) => {
     const existingName = row.cells[0].textContent.trim().toLowerCase();
     const existingDose = row.cells[1].textContent.trim();
-    return existingName === medication.toLowerCase() && existingDose === `${dose} ${unit}`;
+    const existingRoute = row.cells[2].textContent.trim();
+    const existingFrequency = row.cells[3].textContent.trim();
+
+    return existingName === medication.toLowerCase() &&
+      existingDose === `${dose} ${unit}` &&
+      existingRoute === route &&
+      existingFrequency === frequency;
   });
 }
 
