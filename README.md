@@ -35,3 +35,5 @@ safedose-qa-lab/
 ```
 
 Los artefactos de QA, tales como planes de prueba, análisis de riesgos, casos de prueba, evidencias de ejecución y pruebas automatizadas, se introducirán en ramas posteriores a medida que avance el proyecto.
+
+> SafeDose QA Lab se utiliza como entorno educativo para prácticas de calidad de software.
