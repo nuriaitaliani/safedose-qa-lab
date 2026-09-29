@@ -62,9 +62,9 @@ form.addEventListener("submit", (event) => {
 
 function isDuplicate(medication, dose, unit) {
   return [...queueBody.rows].some((row) => {
-    const existingName = row.cells[0].textContent.trim();
+    const existingName = row.cells[0].textContent.trim().toLowerCase();
     const existingDose = row.cells[1].textContent.trim();
-    return existingName === medication && existingDose === `${dose} ${unit}`;
+    return existingName === medication.toLowerCase() && existingDose === `${dose} ${unit}`;
   });
 }
 
