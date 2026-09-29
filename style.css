@@ -287,7 +287,7 @@ footer p { margin: 0; }
     --accent: #5ee4c2;
     --warning-soft: #4e3910;
     --danger-soft: #4b2020;
-    --focus: #0b4a5a;
+    --focus: #5ee4c2;
   }
   body { background: linear-gradient(180deg, #0b2b33 0, var(--canvas) 260px); }
   .brand-mark, .button.primary { color: #062c2a; }
