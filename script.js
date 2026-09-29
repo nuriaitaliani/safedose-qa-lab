@@ -39,6 +39,10 @@ form.addEventListener("submit", (event) => {
   if (!unit) errors.push({ field: "unit", message: "Selecciona una unidad." });
   if (!route) errors.push({ field: "route", message: "Selecciona una vía." });
   if (!frequency) errors.push({ field: "frequency", message: "Selecciona una frecuencia." });
+  if (!allergyChecked) errors.push({
+  field: "allergyChecked",
+  message: "Confirma el estado de alergias."
+});
 
   if (errors.length > 0) {
     showErrors(errors);
