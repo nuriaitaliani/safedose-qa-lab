@@ -27,7 +27,7 @@ form.addEventListener("submit", (event) => {
 
   const data = new FormData(form);
   const medication = String(data.get("medication") || "").trim();
-  const dose = parseInt(data.get("dose"), 10);
+  const dose = Number(data.get("dose"));
   const unit = String(data.get("unit") || "");
   const route = String(data.get("route") || "");
   const frequency = String(data.get("frequency") || "");
