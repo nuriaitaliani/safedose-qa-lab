@@ -35,7 +35,7 @@ form.addEventListener("submit", (event) => {
   const errors = [];
 
   if (medication.length < 2) errors.push({ field: "medication", message: "Escribe un medicamento de al menos 2 caracteres." });
-  if (!Number.isFinite(dose) || dose <= 0 || dose > 9999) errors.push({ field: "dose", message: "Introduce una dosis mayor que 0 y menor o igual que 9999." });
+  if (!Number.isFinite(dose) || dose < 0.1 || dose > 9999) errors.push({ field: "dose", message: "Introduce una dosis entre 0.1 y 9999." });
   if (!unit) errors.push({ field: "unit", message: "Selecciona una unidad." });
   if (!route) errors.push({ field: "route", message: "Selecciona una vía." });
   if (!frequency) errors.push({ field: "frequency", message: "Selecciona una frecuencia." });
