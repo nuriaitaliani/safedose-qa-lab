@@ -288,7 +288,13 @@ footer p { margin: 0; }
     --warning-soft: #4e3910;
     --danger-soft: #4b2020;
     --focus: #5ee4c2;
+    --danger: #ff8a8a;
+}
+
+thead th {
+    color: var(--muted);
   }
+
   body { background: linear-gradient(180deg, #0b2b33 0, var(--canvas) 260px); }
   .brand-mark, .button.primary { color: #062c2a; }
   .environment { color: #9fe8d5; }
