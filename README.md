@@ -156,9 +156,10 @@ Más información: [`phase-6-git-bisect.md`](docs/test-execution/phase-6-git-bis
 
 ## Resultado final
 
-Validación final:
+Validaciones finales documentadas:
 
-- **PASS: 26**
+- **25 casos de validación de correcciones: PASS**
+- **1 caso de regresión de `git bisect` tras la corrección: PASS**
 - **FAIL: 0**
 - **BLOCKED: 0**
 - **NOT RUN: 0**

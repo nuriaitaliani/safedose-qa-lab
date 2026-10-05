@@ -34,13 +34,11 @@ La puntuación se calcula multiplicando:
 
 ### 1. Omisión de alergia — 25
 
-Se ha comprobado que SafeDose permite añadir un registro sin confirmar el
-contraste de alergias.
+Se ha comprobado que SafeDose permite añadir un registro sin confirmar el estado de alergias.
 
 El registro se crea correctamente y aparece en la cola como `Sin confirmar`.
 
-Se considera la prioridad principal porque el contraste de alergias forma parte
-de la puerta de seguridad representada por el prototipo.
+Se considera la prioridad principal porque la confirmación del estado de alergias forma parte de la puerta de seguridad representada por el prototipo.
 
 ---
 
@@ -48,11 +46,9 @@ de la puerta de seguridad representada por el prototipo.
 
 Los valores decimales probados se conservan correctamente.
 
-Sin embargo, el campo declara un mínimo de `0.1` y la aplicación permite
-introducir manualmente `0.05`.
+Sin embargo, el campo declara un mínimo de `0.1` y la aplicación permite introducir manualmente `0.05`.
 
-Esto muestra una diferencia entre el límite definido en HTML y la validación
-real de JavaScript.
+Esto muestra una diferencia entre el límite definido en HTML y la validación real de JavaScript.
 
 ---
 
@@ -66,8 +62,7 @@ Sin embargo:
 - Dos registros con el mismo medicamento, dosis y unidad se consideran
   duplicados aunque tengan distinta vía o frecuencia.
 
-La regla actual puede permitir duplicados no detectados o rechazar registros
-que contienen diferencias relevantes.
+La regla actual puede permitir duplicados no detectados o rechazar registros que contienen diferencias relevantes.
 
 ---
 

@@ -8,7 +8,8 @@ Revisar la evidencia obtenida durante el proyecto y decidir si el prototipo cump
 
 ## Resultado final de pruebas
 
-- PASS: 26
+- 25 casos de validación de correcciones: PASS
+- 1 caso de regresión de `git bisect` tras la corrección: PASS
 - FAIL: 0
 - BLOCKED: 0
 - NOT RUN: 0
